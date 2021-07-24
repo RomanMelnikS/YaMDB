@@ -17,3 +17,5 @@
 8. Соберите статику командой: docker-compose exec web python manage.py collectstatic --noinput
 9. Перейдите по ссылке http://127.0.0.1/admin/ выполните вход и убедитесь, в том, что всё работает.
 10. Готово!
+
+![YaMDB-workflow](https://github.com/RomanMelnikS/yamdb_final/actions/workflows/yamdb_workflow.yaml/badge.svg)
