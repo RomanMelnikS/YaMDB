@@ -105,6 +105,7 @@ def send_confirmation_code(request):
             recipient_list=[email, ]
         )
         return Response('Confirmation code отправлен на ваш Email.')
+    return Response('Что-то пошло не так.')
 
 
 @api_view(['POST'])
