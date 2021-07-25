@@ -3,11 +3,11 @@ from datetime import timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
+SECRET_KEY = os.environ.get('SECRET_KEY', default='slht^##a1)i148kyn^#ilz#a1)@4')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.environ.get('IP'), os.environ.get('DOMIAN_NAME'), 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -64,6 +64,18 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ['DB_NAME'],
+#         'USER': os.environ['POSTGRES_USER'],
+#         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+#         'HOST': os.environ['DB_HOST'],
+#         'PORT': os.environ['DB_PORT'],
+#     }
+# }
 
 
 AUTH_PASSWORD_VALIDATORS = [
