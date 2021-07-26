@@ -61,7 +61,7 @@ jobs:
           sudo docker-compose stop
           sudo docker-compose rm web
           touch .env
-          echo KEY=${{ secrets.KEY }} >> .env
+          echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
           echo IP=${{ secrets.IP }} >> .env
           echo DOMIAN_NAME=${{ secrets.DOMIAN_NAME }} >> .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
