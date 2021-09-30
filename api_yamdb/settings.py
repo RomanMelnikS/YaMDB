@@ -3,11 +3,11 @@ from datetime import timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('SECRET_KEY', default='r3wy237657ewtgfyuh')
+SECRET_KEY = os.environ['SECRET_KEY']
 
-DEBUG = False
+DEBUG = bool(int(os.environ['DEBUG']))
 
-ALLOWED_HOSTS = [os.environ.get('IP'), os.environ.get('DOMIAN_NAME'), 'localhost', 'web']
+ALLOWED_HOSTS = [os.environ['HOST_NAME'], os.environ['HOST_IP'], 'localhost', 'web']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,27 +56,14 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'ENGINE': os.environ['DB_ENGINE'],
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['POSTGRES_USER'],
+        'PASSWORD': os.environ['POSTGRES_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ['DB_NAME'],
-#         'USER': os.environ['POSTGRES_USER'],
-#         'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-#         'HOST': os.environ['DB_HOST'],
-#         'PORT': os.environ['DB_PORT'],
-#     }
-# }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
